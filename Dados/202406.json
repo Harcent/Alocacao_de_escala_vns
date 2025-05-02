@@ -1,0 +1,46 @@
+[
+  {
+    "nome": "Mariana",
+    "dias": "1D 1N 2N 6N 7D 8D 8N 16N 18N"
+  },
+  {
+    "nome": "Rafaela",
+    "dias": "4D 11D 18D 25D 6D 13D 20D 27D 3D 10D 17D 7D 14D 28D"
+  },
+  {
+    "nome": "Alice",
+    "dias": "4D 11D 18D 25D 12D 19D 26D 6D 13D 20D 27D 7D 14D 21D"
+  },
+  {
+    "nome": "Helena",
+    "dias": "19D 26D 12D 7D 8N 30N 14N 29D 28N 1D 23D 16N"
+  },
+  {
+    "nome": "Diego",
+    "dias": "6D 6N 13D 13N 20D 20N 27D 27N 8D 15D 22D 29D 3N 17N 16N 30D 18N 15D"
+  },
+  {
+    "nome": "Camila",
+    "dias": "5N 11D 11N 25D 7D 7N 6N 21D 19N 20N 26N 12D 26D 2N 9N 16N 2D 9D 16D 23N 30N 6D 13D 20D 27D 15N"
+  },
+  {
+    "nome": "Lucas",
+    "dias": "4D 1D 6D 8D 10D 11D 23D 24D 25D 27D 28D 29D 3D 3N 4N 6N 7N 8N 9N 11N 22N 23N 25N 27N 29N 30N"
+  },
+  {
+    "nome": "Pedro",
+    "dias": "2N 3N 6N 7N 9N 10N 13N 20N 21N 23N 24N 26N 28N 26D 27D 7D 8D 21D 22D 3D 10D 24D 22D 18N"
+  },
+  {
+    "nome": "Daniel",
+    "dias": "5N 26N 12N 19N 7N 21N 14N 28N 1N 8N 15N 22N"
+  },
+  {
+    "nome": "Gabriel",
+    "dias": "1N 2D 6N 7N 9D 9N 12N 13N 14N 15N 16D 21N 22N 29N 30D"
+  },
+  {
+    "nome": "Bruno",
+    "dias": "1D 8D 22D 25D 18D 11D 4D 2D 9D 23D 17D 10D 24D 3D"
+  }
+]

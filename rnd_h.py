@@ -97,7 +97,7 @@ class RND:
                     self.assignShifts(p)
                 else:
                     stop[p] = 1
-            self.updateStop(stop)
+            #self.updateStop(stop)
             self.updateMinMax()
     
     def fillRemaining(self) -> None: 
@@ -109,7 +109,7 @@ class RND:
                     self.assignShifts(p)
                 else:
                     stop[p] = 1
-            self.updateStop(stop)
+            #self.updateStop(stop)
             self.updateMinMax()
     
     def updateStop(self, stop: dict) -> None:
@@ -166,12 +166,12 @@ class RND:
     
     def randomSchedule(self) -> None:
     # Generates a random schedule that satisfies the constraints
-        while True:
-            self.garanteeMinimum()
-            if self.minShifts():
-                break
-            self.resetSolution()
-            self.randomOrder()
+        # while True:
+        #     self.garanteeMinimum()
+        #     if self.minShifts():
+        #         break
+        #     self.resetSolution()
+        #     self.randomOrder()
         self.fillRemaining()
         self.updateY()
         return self.cost()

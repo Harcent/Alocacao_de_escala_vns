@@ -1,4 +1,3 @@
-import sys
 from vns_mh import VNS
 from vns_mh2 import VNS2
 from schedule import Schedule
@@ -10,7 +9,8 @@ from copy import deepcopy
 
 from calendar import monthrange
 
-max_iter = 10
+k_max_values = [10, 20, 30, 40, 50]
+max_iter_values = [10, 20, 50, 100]
 seed = 0
 
 def json_to_dict(file_path):
@@ -59,7 +59,8 @@ month_min = {
     202506 : 5,
 }
 
-meses = list(month_min.keys())
+#meses = list(month_min.keys())
+meses = [202506]
 
 columns = month_min.keys()
 df = pd.DataFrame(columns=columns)
@@ -95,20 +96,24 @@ for mes in meses:
   greed = Schedule(people_dict, deepcopy(shifts))
   greed.generateSchedule()
   greedT = time() - start
-  for j in [50]:
-      start = time()
-      vns = VNS(restrictions, seed)
-      random = vns.randomSchedule()
-      df.at[f"Cost(Random) - Seed: {seed} - k_max: {j} - max_iter{max_iter}", mes] = random
-      cost = vns.vns(j, max_iter)
-      end = time() - start
-      df.at[f"Cost(VNS_R) - Seed: {seed} - k_max: {j} - max_iter{max_iter}", mes] = cost
-      df.at[f"Duration - Seed: {seed} - k_max: {j} - max_iter{max_iter}", mes] = end   
-      start = time()
-      vns2 = VNS2(restrictions, greed, seed)
-      df.at[f"Cost(Greed)", mes] = vns2.grdCost()
-      cost = vns2.vns(j, max_iter)
-      end = time() - start + greedT
-      df.at[f"Cost(VNS_G) - Seed: {seed} - k_max: {j} - max_iter{max_iter}", mes] = cost
-      df.at[f"Duration - Seed: {seed} - k_max: {j} - max_iter{max_iter}", mes] = end   
-df.to_csv(f"results{max_iter}seed{seed}.csv")
+  
+  for k_max in k_max_values:
+      for max_iter in max_iter_values:
+          start = time()
+          vns = VNS(restrictions, seed)
+          random = vns.randomSchedule()
+          df.at[f"Cost(Random) - Seed: {seed} - k_max: {k_max} - max_iter{max_iter}", mes] = random
+          cost = vns.vns(k_max, max_iter)
+          end = time() - start
+          df.at[f"Cost(VNS_R) - Seed: {seed} - k_max: {k_max} - max_iter{max_iter}", mes] = cost
+          df.at[f"Duration - Seed: {seed} - k_max: {k_max} - max_iter{max_iter}", mes] = end   
+          
+          start = time()
+          vns2 = VNS2(restrictions, greed, seed)
+          df.at[f"Cost(Greed)", mes] = vns2.grdCost()
+          cost = vns2.vns(k_max, max_iter)
+          end = time() - start + greedT
+          df.at[f"Cost(VNS_G) - Seed: {seed} - k_max: {k_max} - max_iter{max_iter}", mes] = cost
+          df.at[f"Duration - Seed: {seed} - k_max: {k_max} - max_iter{max_iter}", mes] = end   
+
+df.to_csv(f"results_all_combinations_seed{seed}.csv")
